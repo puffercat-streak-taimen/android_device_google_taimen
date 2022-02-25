@@ -12,8 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Inherit some common Project arrow stuff.
-$(call inherit-product, vendor/arrow/config/common.mk)
+# Inherit some common Project streak stuff.
+$(call inherit-product, vendor/streak/config/common_full_phone.mk)
 
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
@@ -23,23 +23,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, device/google/taimen/aosp_taimen.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := arrow_taimen
+PRODUCT_NAME := streak_taimen
 PRODUCT_DEVICE := taimen
 PRODUCT_BRAND := google
 PRODUCT_MODEL := Pixel 2 XL
 PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# ArrowOS additions
-DEVICE_MAINTAINER := ReallySnow
-$(call inherit-product-if-exists, vendor/lawnchair/lawnchair.mk)
+# ProjectStreak properties
+ TARGET_BOOT_ANIMATION_RES := 1080
+ #STREAK_BUILD_TYPE := OFFICIAL
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME="taimen" \
-    PRIVATE_BUILD_DESC="taimen-user 11 RP1A.201005.004.A1 6934943 release-keys"
+    PRIVATE_BUILD_DESC="raven-user 12 SQ1D.220205.003 8069835 release-keys"
 
-BUILD_FINGERPRINT := "google/taimen/taimen:11/RP1A.201005.004.A1/6934943:user/release-keys"
+BUILD_FINGERPRINT := "google/raven/raven:12/SQ1D.220205.003/8069835:user/release-keys"
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.fingerprint=google/taimen/taimen:11/RP1A.201005.004.A1/6934943:user/release-keys
 
 $(call inherit-product, vendor/google/taimen/taimen-vendor.mk)
